@@ -74,8 +74,19 @@ boSP <- as_list(boSizePris)
 ## Size
 boSize <- boSP[1:length(boSP) %% 2 == 1] #Odd number row
 
+boSize2 <- bolig %>%
+    html_nodes(xpath = "//div[@class='ads__unit__content__keys']") %>%
+    html_node(css = "div")
+
+
 ## Price
 boPris <- boSP[1:length(boSP) %% 2 == 0] #Even number row
+
+boPris2 <- bolig %>%
+    html_nodes(xpath = "//div[@class='ads__unit__content__keys']/div") %>%
+    as_list()
+
+boPris2[lapply(1:length(boPris2), "%%", 2) == 0]
 
 
 ## Total price but not all is accessable
@@ -84,3 +95,9 @@ html_nodes(bolig, css = ".ads__unit__content__list")
 
 boToPris <- bolig %>%
     xml2::xml_find_all(xpath = "//div[contains(@class,'ads__unit__content__list truncate')]")
+
+## Total found
+boFound <- bolig %>%
+    #extract only first node i.e html_node
+    html_node(xpath = "//span[@class='current-hit-count']/b") %>%
+    html_attr("data-count")

@@ -116,7 +116,7 @@ html_nodes(bo2, xpath =
 ## Xpath example for prisantydning
 ## /html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]
 
-bolig1 <- xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode=172306637")
+bolig1 <- xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode=171896820")
 
 ## Adresse
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[1]/p") %>%
@@ -131,26 +131,47 @@ html_nodes(bolig1, xpath =
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[1]") %>%
     html_text()
 
-## Felleskost/Måned kosnad
-html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[4]") %>%
+## Omkosninger
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[2]") %>%
     html_text()
 
 ## Totalpris
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[3]") %>%
     html_text()
 
+## Felleskost/Måned kosnad
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[4]") %>%
+    html_text()
+
+
+
 ## Boligtype
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[1]") %>%
     html_text()
 
 ## Eieform
-html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[2]")
-
-## Bruksareal
-html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[5]")
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[2]") %>%
+    html_text()
 
 ## soverom
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[3]")
 
+## Primærrom
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[4]")
+
+## Bruksareal
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[5]")
+
 ## etasje
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[6]")
+
+## Byggår
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[7]")
+
+## Antall rom
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/div/dl[1]/dd[1]") %>%
+    html_text()
+
+## Første visning dato
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[4]/div/div/ul[1]/li[1]/p[1]/time") %>%
+    html_text()

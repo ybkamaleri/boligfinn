@@ -101,3 +101,13 @@ boFound <- bolig %>%
     #extract only first node i.e html_node
     html_node(xpath = "//span[@class='current-hit-count']/b") %>%
     html_attr("data-count")
+
+
+## Get Finnkkode
+## Funker litt
+funker <- html_nodes(bolig, xpath =
+                          ".//div[contains(@class, 'ads__unit__content')]/h2/a")%>%
+    html_attr("href")
+
+gsub(".*[\\d]", "", funker)
+gsub("e=", "", gsub(".*[\\d]", "", funker))

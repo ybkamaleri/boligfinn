@@ -29,28 +29,48 @@ html_nodes(boligAlle, c("div .ads__unit__content"))
 html_nodes(boligAlle, c("div .ads__unit__content h2 a"))
 
 
+
 ### Example
 <div class="ads__unit__content">
     <h2 class="ads__unit__content__title ads__unit__content__title--fav-placeholder" id="result-item-heading-171369189">
         <a id="171369189"
-            href="/realestate/homes/ad.html?finnkode&#61;171369189"
+            href="/realestate/homes/ad.html?finnkode=171369189"
             class="ads__unit__link"
             data-finnkode="171369189"
 
 
-## Funker ikke
-boligAlle %>%
-    html_nodes(c("div .ads__unit__content h2 a .ads__unit__link")) %>%
-    html_text()
-
-## Funker litt
+## Option 1: Fin finnkode
+## but a bit long way
 funker <- html_nodes(boligAlle, xpath =
                           ".//div[contains(@class, 'ads__unit__content')]/h2/a")%>%
     html_attr("href")
 
-gsub(".*[\\d]", "", funker)
-gsub("e=", "", gsub(".*[\\d]", "", funker))
+funker
 
+gsub(".*[\\d]", "", funker)
+gsub("e=", "", gsub(".*[\\d]", "", funker)) #works
+gsub(".*\\=[^\\d+]", "", funker) #why first digit is missing :-)
+stringi::stri_extract(funker, regex = "[^.*\\=]\\d+") #works
+
+## Option2: Find finnkode
+## from this HTML using xpath
+"<article draggable="false" class="ads__unit">
+<div aria-owns="ads__unit__content__title3"></div>
+<div aria-owns="result-item-heading-172391627"></div>"
+
+html_nodes(boligAlle, xpath = "//article[@class='ads__unit']/div[1]")
+
+
+## Option 3: from html file extractBolig.html and use css nodes
+html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
+    html_attr("href")
+
+html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
+    html_attr("href") %>%
+    stringi::stri_extract(regex = "[^.*\\=]\\d+")
+
+
+## =========================================================
 
 test <- boligAlle %>%
     html_nodes(xpath = "//div[@class='ads__unit__content']/h2/a[2]")
@@ -59,3 +79,57 @@ test
 
 grep("finnkode(=\\d)", test, value = TRUE)
 grep("(?<=finnkode=)\\d", test, value = TRUE, perl = TRUE)
+
+## Use stringi
+library(stringi)
+href="/realestate/homes/ad.html?finnkode=171369189"
+
+stri_extract(href, regex = "[^.*\\=]\\d+$")
+
+
+## Example html for one selected flat
+"<section class="panel">
+    <span class="u-t3 u-display-block">ROLIG SIDEGATE PÅ BISLETT</span>
+    <h1 class="u-t2">Pen og moderne 2/3-roms selveier i 2.etg - Heis og balkong - Fyring og v.vann inkl. - Mulig kjøp/leie garasjeplass</h1>
+
+   <p class="u-caption">Falbes gate 18C, 0170 Oslo</p>
+        </section>"
+
+html_nodes(bolig1, c("section .panel p .u-caption"))
+
+## Xpath example for prisantydning
+## /html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]
+
+## Adresse
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[1]/p") %>%
+    html_text()
+
+## Prisantyding
+html_nodes(bolig1, xpath =
+                       "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]") %>%
+    html_text()
+
+
+## Måned kosnad
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[2]") %>%
+    html_text()
+
+## Omkosninger
+html_nodes(bolig1, xpath =
+                       "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[1]")
+
+## Totalpris
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[3]") %>%
+    html_text()
+
+## Eieform
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[2]")
+
+## Bruksareal
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[5]")
+
+## soverom
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[3]")
+
+## etasje
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[6]")

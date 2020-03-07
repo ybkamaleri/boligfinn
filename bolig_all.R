@@ -21,6 +21,7 @@ boligAlle <- xml2::read_html(
 bolig1 <- xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode=137950373")
 
 
+
 html_children(boligAlle)
 html_structure(boligAlle)
 
@@ -87,16 +88,31 @@ href="/realestate/homes/ad.html?finnkode=171369189"
 stri_extract(href, regex = "[^.*\\=]\\d+$")
 
 
-## Example html for one selected flat
-"<section class="panel">
-    <span class="u-t3 u-display-block">ROLIG SIDEGATE PÅ BISLETT</span>
-    <h1 class="u-t2">Pen og moderne 2/3-roms selveier i 2.etg - Heis og balkong - Fyring og v.vann inkl. - Mulig kjøp/leie garasjeplass</h1>
+##==================
+## Selected flat
+##==================
+## Refer to file selectedFlat.html
+bo2 <-
+    xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode=172391627")
 
-   <p class="u-caption">Falbes gate 18C, 0170 Oslo</p>
-        </section>"
 
-html_nodes(bolig1, c("section .panel p .u-caption"))
+## Path to Prisantyding
+## body > main > div > div.grid > div.grid__unit.u-r-size2of3 > div > div:nth-child(4) > div:nth-child(1) > span.u-t3
 
+## Option 1: css style
+## ---------------------
+html_nodes(bo2,
+           css = c("body > main > div > div.grid > div.grid__unit.u-r-size2of3 > div > div:nth-child(4) > div:nth-child(1) > span.u-t3")) %>%
+    html_text()
+
+## Xpath style
+html_nodes(bo2, xpath =
+                       "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]") %>%
+    html_text()
+
+
+## Option 2: xpath style
+## --------------------------------
 ## Xpath example for prisantydning
 ## /html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]
 

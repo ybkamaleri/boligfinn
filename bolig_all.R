@@ -116,6 +116,8 @@ html_nodes(bo2, xpath =
 ## Xpath example for prisantydning
 ## /html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]
 
+bolig1 <- xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode=172306637")
+
 ## Adresse
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[1]/p") %>%
     html_text()
@@ -125,17 +127,20 @@ html_nodes(bolig1, xpath =
                        "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]") %>%
     html_text()
 
-
-## Måned kosnad
-html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[2]") %>%
+## Fellesgjeld
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[1]") %>%
     html_text()
 
-## Omkosninger
-html_nodes(bolig1, xpath =
-                       "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[1]")
+## Felleskost/Måned kosnad
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[4]") %>%
+    html_text()
 
 ## Totalpris
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[3]") %>%
+    html_text()
+
+## Boligtype
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[1]") %>%
     html_text()
 
 ## Eieform

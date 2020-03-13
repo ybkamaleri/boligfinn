@@ -21,14 +21,12 @@ boligAlle <- xml2::read_html(
 bolig1 <- xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode=137950373")
 
 
-
 html_children(boligAlle)
 html_structure(boligAlle)
 
 html_nodes(boligAlle, "div")
 html_nodes(boligAlle, c("div .ads__unit__content"))
 html_nodes(boligAlle, c("div .ads__unit__content h2 a"))
-
 
 
 ### Example
@@ -39,6 +37,10 @@ html_nodes(boligAlle, c("div .ads__unit__content h2 a"))
             class="ads__unit__link"
             data-finnkode="171369189"
 
+
+## -----------------------------------------
+## Gets all the finnkode for all the search
+## -----------------------------------------
 
 ## Option 1: Fin finnkode
 ## but a bit long way
@@ -66,6 +68,8 @@ html_nodes(boligAlle, xpath = "//article[@class='ads__unit']/div[1]")
 html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
     html_attr("href")
 
+## OBS!!
+## The best option to get all kodes for the specified search
 html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
     html_attr("href") %>%
     stringi::stri_extract(regex = "[^.*\\=]\\d+")

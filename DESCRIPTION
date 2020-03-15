@@ -1,0 +1,13 @@
+Package: boligfinn
+Title: Compare info of appartments from Finn.no
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Yusman",
+           family = "Kamaleri",
+           role = c("aut", "cre"),
+           email = "ybkamaleri@gmail.com",
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: Get information from appartments advertised in Finn.no for specified areas, price etc.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true

@@ -6,7 +6,7 @@ Authors@R:
            family = "Kamaleri",
            role = c("aut", "cre"),
            email = "ybkamaleri@gmail.com",
-           comment = c(ORCID = "YOUR-ORCID-ID"))
+           comment = c(ORCID = "0000-0001-5014-3665"))
 Description: Get information from appartments advertised in Finn.no for specified areas, price etc.
 License: GPL-3
 Encoding: UTF-8

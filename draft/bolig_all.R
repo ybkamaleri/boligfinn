@@ -70,10 +70,11 @@ html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
 
 ## OBS!! Here it is!!
 ## The best option to get all kodes for the specified search
-html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
+kodeAlle <- html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
     html_attr("href") %>%
     stringi::stri_extract(regex = "[^.*\\=]\\d+")
 
+kodeAlle
 
 ## =========================================================
 
@@ -121,6 +122,21 @@ html_nodes(bo2, xpath =
 ## /html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]
 
 bolig1 <- xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode=171896820")
+
+## Download search
+finnHtml <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20507&location=1.20061.20511&location=1.20061.20508&location=1.20061.20509&location=1.20061.20531&ownership_type=3&price_collective_from=3400000&price_collective_to=5200000"
+boligAlle <- xml2::read_html(finnHtml)
+
+## Get finn koder
+kodeAlle <- html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
+    html_attr("href") %>%
+    stringi::stri_extract(regex = "[^.*\\=]\\d+")
+
+kodeAlle
+boligHtml <- "https://www.finn.no/realestate/homes/ad.html?finnkode="
+boKode <- paste0(boligHtml, kodeAlle[2])
+bolig1 <- xml2::read_html(boKode)
+
 
 ## Adresse
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[1]/p") %>%
@@ -177,9 +193,12 @@ html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/div
     html_text()
 
 ## Første visning dato
-html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[4]/div/div/ul[1]/li[1]/p[1]/time") %>%
+datoHtml <-
+    "/html/body/main/div/div[4]/div[2]/div/div[2]/div/div/div[1]/dl/div[1]/dd"
+html_nodes(bolig1, xpath = datoHtml) %>%
     html_text()
 
 ## Status
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[2]/span") %>%
     html_text()
+## If missing means it's still active

@@ -68,7 +68,7 @@ html_nodes(boligAlle, xpath = "//article[@class='ads__unit']/div[1]")
 html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
     html_attr("href")
 
-## OBS!!
+## OBS!! Here it is!!
 ## The best option to get all kodes for the specified search
 html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
     html_attr("href") %>%
@@ -178,4 +178,8 @@ html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/div
 
 ## Første visning dato
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[4]/div/div/ul[1]/li[1]/p[1]/time") %>%
+    html_text()
+
+## Status
+html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[2]/span") %>%
     html_text()

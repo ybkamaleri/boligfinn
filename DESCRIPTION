@@ -11,3 +11,11 @@ Description: Get information from appartments advertised in Finn.no for specifie
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    robotstxt,
+    rvest,
+    xml2,
+    stringi,
+    magrittr,
+    ggplot2,
+    lubridate

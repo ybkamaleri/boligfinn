@@ -19,3 +19,4 @@ Imports:
     magrittr,
     ggplot2,
     lubridate
+RoxygenNote: 7.0.2

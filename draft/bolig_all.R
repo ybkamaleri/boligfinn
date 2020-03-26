@@ -125,11 +125,12 @@ bolig1 <- xml2::read_html("https://www.finn.no/realestate/homes/ad.html?finnkode
 
 ## Download search
 finnHtml <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20507&location=1.20061.20511&location=1.20061.20508&location=1.20061.20509&location=1.20061.20531&ownership_type=3&price_collective_from=3400000&price_collective_to=5200000"
+
 boligAlle <- xml2::read_html(finnHtml)
 
 ## Get finn koder
-kodeAlle <- html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
-    html_attr("href") %>%
+kodeAlle <- rvest::html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
+    rvest::html_attr("href") %>%
     stringi::stri_extract(regex = "[^.*\\=]\\d+")
 
 kodeAlle
@@ -202,3 +203,21 @@ html_nodes(bolig1, xpath = datoHtml) %>%
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[2]/span") %>%
     html_text()
 ## If missing means it's still active
+
+
+
+html <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20507&location=1.20061.20511&location=1.20061.20508&location=1.20061.20509&location=1.20061.20531&ownership_type=3&price_collective_from=3400000&price_collective_to=5200000"
+
+get_finn <- function(html = NULL){
+
+    if (!is.null(html)) {
+        allFinn <- xml2::read_html(html)
+    }
+
+    ## Get finn koder
+    allCode <- rvest::html_nodes(allFinn, css = c("div .ads__unit__content h2 a")) %>%
+        rvest::html_attr("href") %>%
+        stringi::stri_extract(regex = "[^.*\\=]\\d+")
+
+    return(allCode)
+}

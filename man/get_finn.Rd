@@ -4,7 +4,7 @@
 \alias{get_finn}
 \title{Get all the Finn kodes}
 \usage{
-get_finn(html = NULL)
+get_finn(html)
 }
 \arguments{
 \item{html}{\code{HTML} search from

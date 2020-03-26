@@ -3,15 +3,19 @@
 #' @param html \code{HTML} search from
 #' \url[Finn.no]{https://www.finn.no/realestate/browse.html}
 #'
-#'
+#' @export
 
-get_finn <- function(html = NULL){
-    allFinn <- xml2::read_html(html)
+get_finn <- function(html){
+
+    if (missing(html)) {
+    stop("'html' must be provided",
+         call. = FALSE)
+  }
 
     ## Get finn koder
-    codeAll <- rvest::html_nodes(allFinn, css = c("div .ads__unit__content h2 a")) %>%
+    allCode <- rvest::html_nodes(allFinn, css = c("div .ads__unit__content h2 a")) %>%
         rvest::html_attr("href") %>%
         stringi::stri_extract(regex = "[^.*\\=]\\d+")
 
-    return(codeAll)
+    return(allCode)
 }

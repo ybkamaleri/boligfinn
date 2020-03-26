@@ -139,6 +139,7 @@ boKode <- paste0(boligHtml, kodeAlle[2])
 bolig1 <- xml2::read_html(boKode)
 
 
+library(rvest)
 ## Adresse
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[1]/p") %>%
     html_text()
@@ -205,6 +206,8 @@ html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[2]/span") 
 ## If missing means it's still active
 
 
+
+## TEST
 
 html <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20507&location=1.20061.20511&location=1.20061.20508&location=1.20061.20509&location=1.20061.20531&ownership_type=3&price_collective_from=3400000&price_collective_to=5200000"
 

@@ -2,4 +2,5 @@
 
 export("%>%")
 export(get_finn)
+export(get_flat)
 importFrom(magrittr,"%>%")

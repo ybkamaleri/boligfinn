@@ -135,18 +135,29 @@ kodeAlle <- rvest::html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")
 
 kodeAlle
 boligHtml <- "https://www.finn.no/realestate/homes/ad.html?finnkode="
-boKode <- paste0(boligHtml, kodeAlle[2])
+boKode <- paste0(boligHtml, kodeAlle[1])
+boKode
+browseURL(boKode)
 bolig1 <- xml2::read_html(boKode)
 
 
 library(rvest)
 ## Adresse
-html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[1]/p") %>%
+dt <- html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/section[1]/p") %>%
     html_text()
+dt2 <- stringi::stri_extract(dt, regex = "\\d{4}")
+str(dt2)
+## stringi::stri_replace(dt, " ", regex = "^.*,[^\\d+]")
 
 ## Prisantyding
-html_nodes(bolig1, xpath =
-                       "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]") %>%
+prisHTML <- "/html/body/main/div/div[4]/div[1]/div/div[3]/span[2]"
+pris <- html_nodes(bolig1, xpath = prisHTML) %>%
+    html_text()
+pris01 <- stringi::stri_replace_all(pris, "", regex = "\\s")
+unlist(stringi::stri_extract_all(pris01, regex = "\\d+"))
+
+html_nodes(bolig1,
+           xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/span[2]") %>%
     html_text()
 
 ## Fellesgjeld

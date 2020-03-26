@@ -30,20 +30,29 @@ get_add <- function(x, postcode = FALSE) {
 get_price <- function(x) {
 
     prisHTML <- "/html/body/main/div/div[4]/div[1]/div/div[3]/span[2]"
-    pris <- rvest::html_nodes(x, xpath = prisHTML) %>%
+    preOut <- rvest::html_nodes(x, xpath = prisHTML) %>%
         rvest::html_text()
 
-    pris01 <- stringi::stri_replace_all(pris, "", regex = "\\s")
-    unlist(stringi::stri_extract_all(pris01, regex = "\\d+"))
+    out <- stringi::stri_replace_all(preOut, "", regex = "\\s")
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
 
 }
 
 
-## Fellesgjeld
+#' Fellesgjeld
+#'
+#' @inheritParams get_add
+
 get_debt <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[1]") %>%
+
+    gjeldxml <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[1]"
+    preOut <- rvest::html_nodes(x, xpath = gjeldxml) %>%
         rvest::html_text()
+
+    out <- stringi::stri_replace_all(preOut, "", regex = "\\s")
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
 }
+
 
 ## Omkosninger
 get_cost <- function(x) {

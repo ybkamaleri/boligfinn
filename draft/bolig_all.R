@@ -161,18 +161,25 @@ html_nodes(bolig1,
     html_text()
 
 ## Fellesgjeld
+gjeldxml <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[1]"
+html_nodes(bolig1, xpath = gjeldxml) %>%
+    html_text()
+
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[1]") %>%
     html_text()
 
 ## Omkosninger
+omxml <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[2]"
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[2]") %>%
     html_text()
 
 ## Totalpris
+totxml <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[3]"
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[3]") %>%
     html_text()
 
 ## Felleskost/Måned kosnad
+felxml <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[4]"
 html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[4]") %>%
     html_text()
 

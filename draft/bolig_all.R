@@ -137,7 +137,7 @@ kodeAlle
 boligHtml <- "https://www.finn.no/realestate/homes/ad.html?finnkode="
 boKode <- paste0(boligHtml, kodeAlle[1])
 boKode
-browseURL(boKode)
+## browseURL(boKode)
 bolig1 <- xml2::read_html(boKode)
 
 
@@ -223,7 +223,16 @@ html_nodes(bolig1, xpath = "/html/body/main/div/div[4]/div[1]/div/div[2]/span") 
     html_text()
 ## If missing means it's still active
 
+## Balkong
+htmlBK <- "/html/body/main/div/div[4]/div[1]/div/section[1]/h1"
+txtBK <- html_nodes(bolig1, xpath = htmlBK) %>%
+    html_text()
 
+txtBK
+grepl("balkong", txtBK) #TRUE finnes det
+
+utBK <- sub("balkong", "", txtBK)
+grepl("balkong", utBK)
 
 ## TEST
 

@@ -133,3 +133,14 @@ get_status <- function(x){
     rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[2]/span") %>%
         rvest::html_text()
 }
+
+## Balkong
+get_balcony <- function(x){
+    htmlBK <- "/html/body/main/div/div[4]/div[1]/div/section[1]/h1"
+    txtBK <-rvest::html_nodes(x, xpath = htmlBK) %>%
+       rvest::html_text()
+
+    medBalkong <- grepl("balkong", txtBK) #TRUE finnes det
+
+    return(medBalkong)
+}

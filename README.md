@@ -7,6 +7,8 @@ boligfinn
 
 [![Build
 Status](https://travis-ci.org/ybkamaleri/boligfinn.svg?branch=master)](https://travis-ci.org/ybkamaleri/boligfinn)
+[![Codecov test
+coverage](https://codecov.io/gh/ybkamaleri/boligfinn/branch/master/graph/badge.svg)](https://codecov.io/gh/ybkamaleri/boligfinn?branch=master)
 <!-- badges: end -->
 
 The goal of boligfinn is to …

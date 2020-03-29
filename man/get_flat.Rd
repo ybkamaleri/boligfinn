@@ -10,5 +10,6 @@ get_flat(code)
 \item{code}{The code for a specific appartment or house}
 }
 \description{
-Get detail for a coded appartment
+Gether all the detail information from the selected flat such as flat type,
+size etc.
 }

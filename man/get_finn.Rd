@@ -7,9 +7,12 @@
 get_finn(html)
 }
 \arguments{
-\item{html}{\code{HTML} search from
-\url[Finn.no]{https://www.finn.no/realestate/browse.html}}
+\item{html}{A \code{HTML} URL for searching flats within specified parameters from
+\href{https://www.finn.no/realestate/browse.html}{Finn.no} eg. area and price.}
+}
+\value{
+A vector of all Finn codes for flats from the specified \code{HTML}
 }
 \description{
-Get all the Finn kodes
+This function will list all the codes for flats found from the specified HTML search.
 }

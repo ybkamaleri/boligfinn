@@ -1,8 +1,11 @@
 #' Get all the Finn kodes
 #'
-#' @param html \code{HTML} search from
-#' \url[Finn.no]{https://www.finn.no/realestate/browse.html}
+#' This function will list all the codes for flats found from the specified HTML search.
 #'
+#' @param html A \code{HTML} URL for searching flats within specified parameters from
+#' \href{https://www.finn.no/realestate/browse.html}{Finn.no} eg. area and price.
+#'
+#' @return A vector of all Finn codes for flats from the specified \code{HTML}
 #' @export
 
 get_finn <- function(html){
@@ -13,7 +16,7 @@ get_finn <- function(html){
     }
 
     ## Get finn koder
-    allCode <- rvest::html_nodes(allFinn, css = c("div .ads__unit__content h2 a")) %>%
+    allCode <- rvest::html_nodes(html, css = c("div .ads__unit__content h2 a")) %>%
         rvest::html_attr("href") %>%
         stringi::stri_extract(regex = "[^.*\\=]\\d+")
 
@@ -23,13 +26,16 @@ get_finn <- function(html){
 
 #' Get detail for a coded appartment
 #'
+#' Gether all the detail information from the selected flat such as flat type,
+#' size etc.
+#'
 #' @param code The code for a specific appartment or house
 #'
 #' @export
 
 get_flat <- function(code){
 
-    if (missing(x)) {
+    if (missing(code)) {
         stop("'code' must be provided",
              call. = FALSE)
     }

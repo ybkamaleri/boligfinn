@@ -1,7 +1,4 @@
-#' Make digits to million
-#'
-#' @param x A nummeric value
-
+## Digits should be 7 for million
 add_mil <- function(x) {
 
     digitSum <- stringi::stri_count_regex(format(x, scientific = FALSE), "\\d")

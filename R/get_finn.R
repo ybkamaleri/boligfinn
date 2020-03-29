@@ -15,8 +15,11 @@ get_finn <- function(html){
              call. = FALSE)
     }
 
+    ## Read URL
+    innHtml <- xml2::read_html(html)
+
     ## Get finn koder
-    allCode <- rvest::html_nodes(html, css = c("div .ads__unit__content h2 a")) %>%
+    allCode <- rvest::html_nodes(innHtml, css = c("div .ads__unit__content h2 a")) %>%
         rvest::html_attr("href") %>%
         stringi::stri_extract(regex = "[^.*\\=]\\d+")
 

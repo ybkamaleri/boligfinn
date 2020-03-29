@@ -11,7 +11,9 @@ Description: Get information from appartments advertised in Finn.no for specifie
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports: 
+Imports:
+    data.table,
+    glue, 
     robotstxt,
     rvest,
     xml2,

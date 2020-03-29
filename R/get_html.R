@@ -7,9 +7,8 @@
 #' @param pmax Maximum price
 #' @param add Other areas code which isn't included in the default
 #'
-#'
 #' @export
-get_html <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
+get_html <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL){
 
     ## Default areas if not selected
     ## Sagene / St. Hanshaugen / Majorstuen

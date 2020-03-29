@@ -14,6 +14,8 @@ finn(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...)
 \item{pmax}{Maximum price}
 
 \item{add}{Other areas code which isn't included in the default}
+
+\item{...}{Extra arguments}
 }
 \description{
 Create table from Finn search

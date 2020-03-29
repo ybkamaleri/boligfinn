@@ -4,7 +4,7 @@
 \alias{get_html}
 \title{Get HTML codes}
 \usage{
-get_html(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...)
+get_html(area = 1:5, pmin = 3, pmax = 5, add = NULL)
 }
 \arguments{
 \item{area}{Areas to choose in Oslo}

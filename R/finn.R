@@ -1,8 +1,10 @@
 #' Create table from Finn search
 #'
+#' @param ... Extra arguments
 #' @inheritParams get_html
 #'
 #' @export
+
 finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
 
     ## Get html
@@ -10,6 +12,4 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
 
     ## Finn codes
     finnCodes <- get_finn(finnHTML)
-
-
 }

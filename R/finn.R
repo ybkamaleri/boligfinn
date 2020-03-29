@@ -46,5 +46,5 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
 
     finnTabel <- data.table::rbindlist(finnTabel)
 
-    return(aptAdd)
+    return(finnTabel)
 }

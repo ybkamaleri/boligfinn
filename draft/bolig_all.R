@@ -281,6 +281,13 @@ area3 <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.2
 
 oslo <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061"
 
+
+
+
+
+
+## Price
+## --------
 priceRange <- "&price_collective_from=3400000&price_collective_to=5200000"
 priceMin <- 3000000
 priceMax <- 5200000
@@ -288,7 +295,7 @@ priceMax <- 5200000
 ## Check it's in million with 7 digits
 stringi::stri_count_regex(format(priceMin, scientific = FALSE), "\\d")
 
-x <- 5200000
+x <- 5
 
 add_mil <- function(x) {
     digitSum <- stringi::stri_count_regex(format(x, scientific = FALSE), "\\d")
@@ -301,6 +308,8 @@ add_mil <- function(x) {
     price <- as.character(priceMil)
     return(priceMil)
 }
+
+add_mil(x)
 
 add_mil(priceMin)
 

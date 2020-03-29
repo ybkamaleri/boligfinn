@@ -251,3 +251,64 @@ get_finn <- function(html = NULL){
 
     return(allCode)
 }
+
+
+## Area koder
+frogne <-
+    "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20507"
+frogneKode <- "&location=1.20061.20507"
+
+
+grnloke <-
+    "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20511"
+grnlokeKode <- "&location=1.20061.20511"
+
+## sagene and torshov
+sagene <-
+    "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20510"
+sageneode <- "&location=1.20061.20510"
+
+sthaugen <-
+    "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20509"
+sthaugenKode <- "&location=1.20061.20509"
+
+majorstua <-
+    "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20508"
+majorstuaKode <- "&location=1.20061.20508"
+
+## Sagene / St. Hanshaugen / Majorstuen
+area3 <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20508&location=1.20061.20509&location=1.20061.20510"
+
+oslo <- "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061"
+
+priceRange <- "&price_collective_from=3400000&price_collective_to=5200000"
+priceMin <- 3000000
+priceMax <- 5200000
+
+## Check it's in million with 7 digits
+stringi::stri_count_regex(format(priceMin, scientific = FALSE), "\\d")
+
+x <- 5200000
+
+add_mil <- function(x) {
+    digitSum <- stringi::stri_count_regex(format(x, scientific = FALSE), "\\d")
+    zeroSum <- 7 - digitSum
+    ## make it as million ie. 7 digits
+    priceMil <- format(paste0(format(x, scientific = FALSE),
+                              paste0(rep(0, zeroSum), collapse = "")),
+                       scientific = FALSE)
+
+    price <- as.character(priceMil)
+    return(priceMil)
+}
+
+add_mil(priceMin)
+
+xMin = add_mil(32)
+xMax = add_mil(5000000)
+priceBase <- glue::glue("&price_collective_from={minPrice}",
+           "&price_collective_to={maxPrice}",
+           minPrice = format(xMin, scientific = FALSE),
+           maxPrice = format(xMax, scientific = FALSE))
+
+priceBase

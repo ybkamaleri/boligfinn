@@ -55,6 +55,7 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
     ## stop Progress bar
     close(pb)
 
+    ## Create table
     finnTabel <- data.table::rbindlist(finnTabel)
 
     return(finnTabel)

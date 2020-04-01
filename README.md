@@ -22,7 +22,7 @@ with:
 
     install.packages("boligfinn")
 
-but until that time comes, then you have to install from **GitHub**.
+but until that time comes, then you have to install it from **GitHub**.
 
     remotes::install_github("ybkamaleri/boligfinn")
 
@@ -33,3 +33,4 @@ This is a basic example which shows you how to solve a common problem:
 
     library(boligfinn)
     ## basic example code
+    DF <- finn()

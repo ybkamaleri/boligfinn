@@ -33,7 +33,7 @@ You can install the released version of boligfinn from [CRAN](https://CRAN.R-pro
 ``` {r eval=FALSE}
 install.packages("boligfinn")
 ```
-but until that time comes, then you have to install from **GitHub**.
+but until that time comes, then you have to install it from **GitHub**.
 
 ```{r eval=FALSE}
 remotes::install_github("ybkamaleri/boligfinn")
@@ -46,4 +46,5 @@ This is a basic example which shows you how to solve a common problem:
 ```{r example, eval=FALSE}
 library(boligfinn)
 ## basic example code
+DF <- finn()
 ```

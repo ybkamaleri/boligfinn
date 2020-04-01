@@ -3,6 +3,7 @@
 #' @param ... Extra arguments
 #' @inheritParams get_html
 #'
+#' @importFrom utils setTxtProgressBar txtProgressBar
 #' @export
 
 finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
@@ -14,9 +15,16 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
     finnCodes <- get_finn(finnHTML)
 
 
+    ## Set progress bar
+    pb <- txtProgressBar(min = 0, max = length(finnCodes), style = 3)
+
     finnTabel <- list()
 
     for (i in 1:length(finnCodes)){
+
+        ## Progress bar
+        setTxtProgressBar(pb, i)
+
         ## Detail info for a selected flat
         aptCode <- get_flat(finnCodes[i])
 
@@ -43,6 +51,9 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
 
         finnTabel[[i]] <- tempTab
     }
+
+    ## stop Progress bar
+    close(pb)
 
     finnTabel <- data.table::rbindlist(finnTabel)
 

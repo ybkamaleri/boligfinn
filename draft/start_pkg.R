@@ -1,4 +1,28 @@
+## Package development
+## -------------------
+## OBS!! Make sure to run R from root package directory!
+pkgs <- c("usethis", "devtools", "rmarkdown", "here", "fs", "data.table")
+sapply(pkgs, require, character.only = TRUE)
+
+## Looping
+devtools::load_all()
+devtools::document()
+
+devtools::check()
+devtools::test()
+
+## Run in console
+## devtools::test_file() #for a specific active file
+## test_coverage()
+
+
+usethis::edit_r_buildignore()
+
+
+
+## STEP 1
 ## Create package from start
+##--------------------------
 library(usethis)
 create_package("~/Git-personal/boligfinn")
 
@@ -12,6 +36,8 @@ pkgs <- c("robotstxt", "rvest",  "xml2", "data.table", "stringi", "ggplot2",)
 
 
 sapply(pkgs, use_package)
+
+usethis::use_description()
 
 ## Readme
 use_readme_rmd()

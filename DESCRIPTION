@@ -13,14 +13,17 @@ Encoding: UTF-8
 LazyData: true
 Imports:
     data.table,
-    glue, 
+    glue,
     robotstxt,
     rvest,
     xml2,
     stringi,
     magrittr,
     ggplot2,
-    lubridate
+    lubridate,
+    fs,
+    DBI,
+    RSQLite
 RoxygenNote: 7.0.2
 Suggests: 
     testthat (>= 2.1.0),

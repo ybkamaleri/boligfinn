@@ -53,6 +53,17 @@ library(fs)
 fs::file_create(here("R", "get_finn.R"))
 
 
+## add package to DESCRIPTION
+usethis::use_package("fs")
+usethis::use_package("DBI")
+usethis::use_package("RSQLite")
+
+## Test
+##-----
+
+usethis::use_test("Database_path")
+
+
 ## Pkgdown
 ## ---------
 library(pkgdown)

@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_more.R
 \name{get_type}
 \alias{get_type}
-\title{Appartment type}
+\title{Type of housing}
 \usage{
 get_type(x)
 }
@@ -10,5 +10,5 @@ get_type(x)
 \item{x}{HTML code}
 }
 \description{
-Appartment type
+Type of housing
 }

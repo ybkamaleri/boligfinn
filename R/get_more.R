@@ -134,7 +134,7 @@ get_bed <- function(x){
 
 
 ## Primærrom
-#' Primary room
+#' Primary room size (primærrom)
 #'
 #' @inheritParams get_add
 
@@ -144,11 +144,11 @@ get_primary <- function(x){
     out <- rvest::html_nodes(x, xpath = fromPath) %>%
         rvest::html_text()
 
-    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
+    paste(unlist(stringi::stri_extract_all(out, regex = "\\d+")), collapse = "")
 }
 
 ## Bruksareal
-#' Size of appartment
+#' Size of appartment (bruksareal)
 #'
 #' @inheritParams get_add
 

@@ -8,6 +8,10 @@
 
 finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
 
+    ## stop warnings
+    oldw <- getOption("warn")
+    options(warn = -1)
+
     ## Get html
     finnHTML <- get_html(area = area, pmin = pmin, pmax = pmax, add = add)
 
@@ -46,7 +50,10 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
         ## type
         aptType <- get_type(aptCode)
 
-        ## size
+        ## primary size (primaærom)
+        aptPrim <- get_primary(aptCode)
+
+        ## size (bruksareal)
         aptSize <- get_size(aptCode)
 
         ## balcony
@@ -71,14 +78,14 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
                         month = aptMonth,
                         debt = aptDebt,
                         type = aptType,
-                        size = aptSize,
+                        use_size = aptSize,
                         balcony = aptBalcony,
                         form = aptForm,
                         address = aptAdd,
                         postcode = aptPost,
                         visit = aptVisit,
                         status = aptStatus,
-                        code = i)
+                        code = finnCodes[i])
 
         finnTabel[[i]] <- tempTab
     }
@@ -88,6 +95,9 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
 
     ## Create table
     finnTabel <- data.table::rbindlist(finnTabel, fill = TRUE)
+
+    ## Activate warning as it is
+    options(warn = oldw)
 
     return(finnTabel)
 }

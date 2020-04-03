@@ -65,7 +65,7 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
         aptStatus <- get_status(aptCode)
 
 
-
+        ## Create Table
         tempTab <- list(price = aptPrice,
                         total = aptTotal,
                         month = aptMonth,
@@ -77,7 +77,8 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
                         address = aptAdd,
                         postcode = aptPost,
                         visit = aptVisit,
-                        status = aptStatus)
+                        status = aptStatus,
+                        code = i)
 
         finnTabel[[i]] <- tempTab
     }

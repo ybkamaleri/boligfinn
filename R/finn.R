@@ -20,7 +20,7 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
 
     finnTabel <- list()
 
-    for (i in 1:length(finnCodes)){
+    for (i in 2:length(finnCodes)){
 
         ## Progress bar
         setTxtProgressBar(pb, i)

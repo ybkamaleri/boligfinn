@@ -158,7 +158,7 @@ get_size <- function(x){
     out <- rvest::html_nodes(x, xpath = fromPath) %>%
         rvest::html_text()
 
-    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
+    paste(unlist(stringi::stri_extract_all(out, regex = "\\d+")), collapse = "")
 }
 
 ## etasje

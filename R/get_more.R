@@ -23,7 +23,7 @@ get_add <- function(x, postcode = FALSE) {
 
 
 
-#' Prisantyding
+#' Selling price
 #'
 #' @inheritParams get_add
 
@@ -98,7 +98,7 @@ get_month <- function(x){
 
 
 ## Boligtype
-#' Appartment type
+#' Type of housing
 #'
 #' @inheritParams get_add
 

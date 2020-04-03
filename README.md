@@ -11,7 +11,7 @@ Status](https://travis-ci.org/ybkamaleri/boligfinn.svg?branch=master)](https://t
 coverage](https://codecov.io/gh/ybkamaleri/boligfinn/branch/master/graph/badge.svg)](https://codecov.io/gh/ybkamaleri/boligfinn?branch=master)
 <!-- badges: end -->
 
-The goal of `boligfinn` is to be able extract data from
+The goal of `boligfinn` is to be able to extract data from
 [Finn.no](https://www.finn.no/) and create a database for current
 appartments on sale. You can then just use your imagination on how to
 use the data. The default areas are around **OSLO** but you can easily

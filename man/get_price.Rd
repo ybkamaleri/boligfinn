@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_more.R
 \name{get_price}
 \alias{get_price}
-\title{Prisantyding}
+\title{Selling price}
 \usage{
 get_price(x)
 }
@@ -10,5 +10,5 @@ get_price(x)
 \item{x}{HTML code}
 }
 \description{
-Prisantyding
+Selling price
 }

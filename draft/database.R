@@ -7,6 +7,12 @@ finnHtml <- "https://www.finn.no/realestate/homes/search.html?filters=&location=
 dt <- finn()
 data.table::setDF(dt)
 
+## Check folder
+## --------------
+library(fs)
+dirLocal <- "~/boligfinn"
+if (isFALSE(fs::dir_exists(dirLocal))) fs::dir_create(dirLocal)
+
 ## Create database
 ## ---------------
 library(DBI)

@@ -60,8 +60,10 @@ get_debt <- function(x){
 #' @inheritParams get_add
 
 get_cost <- function(x) {
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[2]") %>%
+    out <- rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[2]") %>%
         rvest::html_text()
+
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
 }
 
 
@@ -71,8 +73,12 @@ get_cost <- function(x) {
 #' @inheritParams get_add
 
 get_total <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[3]") %>%
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[3]"
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
         rvest::html_text()
+
+    paste(unlist(stringi::stri_extract_all(out, regex = "\\d")), collapse = "")
+
 }
 
 
@@ -82,8 +88,12 @@ get_total <- function(x){
 #' @inheritParams get_add
 
 get_month <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[4]") %>%
+
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[4]"
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
         rvest::html_text()
+
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
 }
 
 
@@ -114,8 +124,14 @@ get_form <- function(x){
 #'
 #' @inheritParams get_add
 get_bed <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[3]")
+
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[3]"
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
+        rvest::html_text()
+
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
 }
+
 
 ## Primærrom
 #' Primary room
@@ -123,7 +139,12 @@ get_bed <- function(x){
 #' @inheritParams get_add
 
 get_primary <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[4]")
+
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[4]"
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
+        rvest::html_text()
+
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
 }
 
 ## Bruksareal
@@ -132,7 +153,12 @@ get_primary <- function(x){
 #' @inheritParams get_add
 
 get_size <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[5]")
+
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[5]"
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
+        rvest::html_text()
+
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
 }
 
 ## etasje
@@ -141,7 +167,14 @@ get_size <- function(x){
 #' @inheritParams get_add
 
 get_floor <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[6]")
+
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[6]"
+
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
+        rvest::html_text()
+
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
+
 }
 
 ## Byggår
@@ -150,7 +183,14 @@ get_floor <- function(x){
 #' @inheritParams get_add
 
 get_build <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[7]")
+
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[7]"
+
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
+        rvest::html_text()
+
+    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
+
 }
 
 ## Antall rom
@@ -172,7 +212,7 @@ get_room <- function(x){
 get_date <- function(x){
     datoHtml <-
         "/html/body/main/div/div[4]/div[2]/div/div[2]/div/div/div[1]/dl/div[1]/dd"
-    rvest::html_nodes(x, xpath = datoHtml) %>%
+    out <- rvest::html_nodes(x, xpath = datoHtml) %>%
         rvest::html_text()
 }
 
@@ -182,8 +222,12 @@ get_date <- function(x){
 #' @inheritParams get_add
 
 get_status <- function(x){
-    rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[2]/span") %>%
+    fromPath <- "/html/body/div[2]/main/div[3]/div[1]/section/div/article[16]/div[4]/div[2]/span"
+
+    out <- rvest::html_nodes(x, xpath = fromPath) %>%
         rvest::html_text()
+
+
 }
 
 ## Balkong

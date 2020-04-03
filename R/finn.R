@@ -61,6 +61,9 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
         ## visit date
         aptVisit <- get_date(aptCode)
 
+        ## status
+        aptStatus <- get_status(aptCode)
+
 
 
         tempTab <- list(price = aptPrice,
@@ -73,7 +76,8 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
                         form = aptForm,
                         address = aptAdd,
                         postcode = aptPost,
-                        visit = aptVisit)
+                        visit = aptVisit,
+                        status = aptStatus)
 
         finnTabel[[i]] <- tempTab
     }

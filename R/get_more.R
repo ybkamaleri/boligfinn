@@ -93,7 +93,7 @@ get_month <- function(x){
     out <- rvest::html_nodes(x, xpath = fromPath) %>%
         rvest::html_text()
 
-    unlist(stringi::stri_extract_all(out, regex = "\\d+"))
+   paste(unlist(stringi::stri_extract_all(out, regex = "\\d+")), collapse = "")
 }
 
 
@@ -222,7 +222,7 @@ get_date <- function(x){
 #' @inheritParams get_add
 
 get_status <- function(x){
-    fromPath <- "/html/body/div[2]/main/div[3]/div[1]/section/div/article[16]/div[4]/div[2]/span"
+    fromPath <- "/html/body/main/div/div[4]/div[1]/div/div[2]/span"
 
     out <- rvest::html_nodes(x, xpath = fromPath) %>%
         rvest::html_text()

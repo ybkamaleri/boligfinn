@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_more.R
 \name{get_date}
 \alias{get_date}
-\title{Showdate}
+\title{Visit date}
 \usage{
 get_date(x)
 }
@@ -10,5 +10,5 @@ get_date(x)
 \item{x}{HTML code}
 }
 \description{
-Showdate
+Visit date
 }

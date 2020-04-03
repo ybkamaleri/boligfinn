@@ -24,6 +24,7 @@ with:
 
 but until that time comes, then you have to install it from **GitHub**.
 
+    if(!require(remotes)) install.packages("remotes")
     remotes::install_github("ybkamaleri/boligfinn")
 
 Example

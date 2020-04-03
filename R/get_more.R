@@ -81,7 +81,7 @@ get_total <- function(x){
 #'
 #' @inheritParams get_add
 
-get_common <- function(x){
+get_month <- function(x){
     rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[4]") %>%
         rvest::html_text()
 }
@@ -127,11 +127,11 @@ get_primary <- function(x){
 }
 
 ## Bruksareal
-#' Area size
+#' Size of appartment
 #'
 #' @inheritParams get_add
 
-get_area <- function(x){
+get_size <- function(x){
     rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[5]")
 }
 
@@ -165,7 +165,7 @@ get_room <- function(x){
 
 
 ## Første visning dato
-#' Showdate
+#' Visit date
 #'
 #' @inheritParams get_add
 

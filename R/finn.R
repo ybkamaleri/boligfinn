@@ -34,8 +34,23 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
         ## price
         aptPrice <- get_price(aptCode)
 
+        ## Total price
+        aptTotal <- get_total(aptCode)
+
+        ## Monthly rent
+        aptMonth <- get_month(aptCode)
+
+        ## Common dept
+        aptDebt <- get_debt(aptCode)
+
         ## type
         aptType <- get_type(aptCode)
+
+        ## size
+        aptSize <- get_size(aptCode)
+
+        ## balcony
+        aptBalcony <- get_balcony(aptCode)
 
         ## ownership
         aptForm <- get_form(aptCode)
@@ -43,11 +58,22 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
         ## postcode
         aptPost <- get_add(aptCode, postcode = TRUE)
 
+        ## visit date
+        aptVisit <- get_date(aptCode)
+
+
+
         tempTab <- list(price = aptPrice,
+                        total = aptTotal,
+                        month = aptMonth,
+                        debt = aptDebt,
                         type = aptType,
+                        size = aptSize,
+                        balcony = aptBalcony,
                         form = aptForm,
                         address = aptAdd,
-                        postcode = aptPost)
+                        postcode = aptPost,
+                        visit = aptVisit)
 
         finnTabel[[i]] <- tempTab
     }

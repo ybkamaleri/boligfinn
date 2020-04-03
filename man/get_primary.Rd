@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_more.R
 \name{get_primary}
 \alias{get_primary}
-\title{Primary room}
+\title{Primary room size (primærrom)}
 \usage{
 get_primary(x)
 }
@@ -10,5 +10,5 @@ get_primary(x)
 \item{x}{HTML code}
 }
 \description{
-Primary room
+Primary room size (primærrom)
 }

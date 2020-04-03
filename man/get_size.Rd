@@ -2,7 +2,7 @@
 % Please edit documentation in R/get_more.R
 \name{get_size}
 \alias{get_size}
-\title{Size of appartment}
+\title{Size of appartment (bruksareal)}
 \usage{
 get_size(x)
 }
@@ -10,5 +10,5 @@ get_size(x)
 \item{x}{HTML code}
 }
 \description{
-Size of appartment
+Size of appartment (bruksareal)
 }

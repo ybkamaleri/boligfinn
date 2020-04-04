@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">boligfinn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.0.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
       </span>
     </div>
 
@@ -75,13 +75,23 @@
 <div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(remotes)) <span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span>
 <span id="cb2-2"><a href="#cb2-2"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"ybkamaleri/boligfinn"</span>)</span></code></pre></div>
 </div>
-<div id="example" class="section level2">
+<div id="extract-data" class="section level2">
 <h2 class="hasAnchor">
-<a href="#example" class="anchor"></a>Example</h2>
+<a href="#extract-data" class="anchor"></a>Extract data</h2>
 <p>This is a basic example which shows you how to use the main function ie. <code><a href="reference/finn.html">finn()</a></code>:</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(boligfinn)</span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="co">## basic example code</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>DF &lt;-<span class="st"> </span><span class="kw">finn</span>()</span></code></pre></div>
+<span id="cb3-3"><a href="#cb3-3"></a>DF &lt;-<span class="st"> </span><span class="kw">finn</span>(<span class="dt">area =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">pmin =</span> <span class="dv">35</span>, <span class="dt">pmax =</span> <span class="dv">5000000</span>)</span></code></pre></div>
+<p>For the minimum and maximum prices, itâs in million. You can write it the whole digits or exclude the zeros.</p>
+</div>
+<div id="create-database" class="section level2">
+<h2 class="hasAnchor">
+<a href="#create-database" class="anchor"></a>Create database</h2>
+<p>If you are interested to save the extracted data to a database.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">make_db</span>(DF)</span></code></pre></div>
+<p>Database will be created automatically. Therefore itâs not necessary to specify the database name.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>outData &lt;-<span class="st"> </span><span class="kw">read_db</span>()</span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">get_db</span>() <span class="co">#get the file path</span></span></code></pre></div>
 </div>
 </div>
   </div>

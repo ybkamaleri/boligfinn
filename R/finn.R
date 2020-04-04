@@ -90,7 +90,8 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
                         visit = aptVisit,
                         status = aptStatus,
                         code = finnCodes[i],
-                        date = as.Date(Sys.time()))
+                        date = as.character(as.Date(Sys.time()))
+                        )
 
         finnTabel[[i]] <- tempTab
     }

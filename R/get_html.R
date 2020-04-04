@@ -2,13 +2,19 @@
 #'
 #' Collect all \code{HTML} code for further anaysis
 #'
-#' @param area Areas to choose in Oslo
-#' @param pmin Minimum price
-#' @param pmax Maximum price
-#' @param add Other areas code which isn't included in the default
+#' @inheritParams finn
 #'
 #' @export
-get_html <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL){
+get_html <- function(area, pmin, pmax, add){
+
+    if (missing(area)) {area <- 1:5}
+
+    if (missing(pmin)) {pmin = 3}
+
+    if (missing(pmax)) {pmax = 5}
+
+    if (missing(add)) {add = NULL}
+
 
     ## Default areas if not selected
     ## Sagene / St. Hanshaugen / Majorstuen

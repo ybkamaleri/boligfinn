@@ -18,7 +18,6 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
     ## List of Finn codes for the specified parameters
     finnCodes <- get_finn(finnHTML)
 
-
     ## Set progress bar
     pb <- txtProgressBar(min = 0, max = length(finnCodes), style = 3)
 
@@ -85,7 +84,8 @@ finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
                         postcode = aptPost,
                         visit = aptVisit,
                         status = aptStatus,
-                        code = finnCodes[i])
+                        code = finnCodes[i],
+                        date = as.Date(Sys.time()))
 
         finnTabel[[i]] <- tempTab
     }

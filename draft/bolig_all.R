@@ -70,11 +70,68 @@ html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
 
 ## OBS!! Here it is!!
 ## The best option to get all kodes for the specified search
+## -----------------------------------------------------------
 kodeAlle <- html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
     html_attr("href") %>%
     stringi::stri_extract(regex = "[^.*\\=]\\d+")
 
 kodeAlle
+
+kodeAlle2 <- html_nodes(boligAlle, css = c("div .ads__unit__content h2 a")) %>%
+    html_attr("id")
+
+kodeAlle2
+
+## OPTION 4:
+##---------------
+htmlExp <-
+    "https://www.finn.no/realestate/homes/search.html?filters=&location=0.20061&location=1.20061.20511&location=1.20061.20508&price_collective_from=3000000&price_collective_to=5000000"
+
+## browseURL(htmlExp)
+
+allBo <- xml2::read_html(htmlExp)
+boligAlle <- allBo
+
+
+## list of found housing from search
+searchPath <- "/html/body/div[2]/main/div[3]/div[1]/section/div"
+searchCss <- "html body div#__next main.pageholder div.grid div.grid__unit.u-r-size2of3 section div.ads.ads--list"
+
+## for list of all kodes for each
+## unit or an appartment from search
+headUnit <- "/html/body/div[2]/main/div[3]/div[1]/section/div/article[1]"
+cssHeadUnit <- "article.ads__unit:nth-child(1)" #selector
+## cssPath
+cssHeadUn <- "html body div#__next main.pageholder div.grid div.grid__unit.u-r-size2of3 section div.ads.ads--list article.ads__unit"
+
+## Unit information
+unitCss <- "article.ads__unit:nth-child(1) > div:nth-child(2)" #css path
+unitPath <- "/html/body/div[2]/main/div[3]/div[1]/section/div/article[1]/div[2]"
+cssPath <- "html body div#__next main.pageholder div.grid div.grid__unit.u-r-size2of3 section div.ads.ads--list article.ads__unit"
+
+dd <- rvest::html_node(allBo, xpath = searchPath) %>%
+    rvest::html_nodes(xpath = headUnit)
+
+html_attrs(dd)
+
+html_nodes(dd, css = "#ads__unit")
+
+dd2 <- dd %>%
+    xml2::xml_find_all("//article[contains(@class, 'ads_unit')]") %>%
+    rvest::html_children()
+
+dd2
+
+
+## All the search unit
+d2 <- rvest::html_nodes(allBo, xpath = headUnit)
+
+html_nodes(d2, css = "div")
+
+d3 <- html_children(d2)
+html_attrs(d2) #chek the class
+html_attr()
+
 
 ## =========================================================
 

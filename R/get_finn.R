@@ -20,8 +20,7 @@ get_finn <- function(html){
 
     ## Get finn koder
     allCode <- rvest::html_nodes(innHtml, css = c("div .ads__unit__content h2 a")) %>%
-        rvest::html_attr("href") %>%
-        stringi::stri_extract(regex = "[^.*\\=]\\d+")
+        rvest::html_attr("id")
 
     return(allCode)
 }

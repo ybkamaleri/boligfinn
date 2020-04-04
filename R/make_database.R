@@ -21,7 +21,7 @@ make_db <- function(x, ...){
     finnCon <- DBI::dbConnect(RSQLite::SQLite(), dbname = dbPath)
 
     ## Add data
-    if(fileOpt == 1){
+    if(fileOpt == 0){
         DBI::dbWriteTable(finnCon, "finn", x) #use overwrite or append
     } else {
         DBI::dbWriteTable(finnCon, "finn", x, append = TRUE) #use overwrite or append
@@ -30,6 +30,24 @@ make_db <- function(x, ...){
     DBI::dbDisconnect(finnCon)
 }
 
+
+#' Read database
+#'
+read_db <- function(){
+
+    dbPath <- get_db()
+
+    ## connect to database
+    finnCon <- DBI::dbConnect(RSQLite::SQLite(), dbname = dbPath)
+
+    DF <- DBI::dbGetQuery(finnCon, "SELECT * FROM finn")
+
+    DBI::dbDisconnect(finnCon)
+
+    data.table::setDT(DF)
+
+    return(DF)
+}
 
 
 #' Get database folder and name

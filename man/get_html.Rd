@@ -4,16 +4,18 @@
 \alias{get_html}
 \title{Get HTML codes}
 \usage{
-get_html(area = 1:5, pmin = 3, pmax = 5, add = NULL)
+get_html(area, pmin, pmax, add)
 }
 \arguments{
-\item{area}{Areas to choose in Oslo}
+\item{area}{Areas in Oslo to choose from
+1:Bygdøy/Frogner 2:Grünerløkka/Sofienberg 3:Sagene/Torshov
+4:St.Hanshaugen/Ullevål 5:Uranienborg/Majorstuen}
 
 \item{pmin}{Minimum price}
 
 \item{pmax}{Maximum price}
 
-\item{add}{Other areas code which isn't included in the default}
+\item{add}{Other areas to choose from which isn't included in the default}
 }
 \description{
 Collect all \code{HTML} code for further anaysis

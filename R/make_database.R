@@ -33,6 +33,7 @@ make_db <- function(x, ...){
 
 #' Read database
 #'
+#' @export
 read_db <- function(){
 
     dbPath <- get_db()
@@ -53,14 +54,21 @@ read_db <- function(){
 #' Get database folder and name
 #'
 #' This is standard and will be \code{~/boligfinn/boligfinn.sqlite}
+#'
+#' @export
 get_db <- function(){
 
-    ## Check if folder exists
+  if (.Platform$OS.type == "windows"){
+    dirLocal <- "C:/boligfinn"
+  } else {
     dirLocal <- "~/boligfinn"
-    if (isFALSE(fs::dir_exists(dirLocal))) fs::dir_create(dirLocal)
-    ## Create database
-    dbName <- "boligfinn.sqlite"
-    dbPath <- paste(dirLocal, dbName, sep = "/")
+  }
 
-    return(dbPath)
+  ## Check if folder exists
+  if (isFALSE(fs::dir_exists(dirLocal))) fs::dir_create(dirLocal)
+  ## Create database
+  dbName <- "boligfinn.sqlite"
+  dbPath <- paste(dirLocal, dbName, sep = "/")
+
+  return(dbPath)
 }

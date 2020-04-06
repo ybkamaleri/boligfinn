@@ -26,6 +26,7 @@ get_add <- function(x, postcode = FALSE) {
 #' Selling price
 #'
 #' @inheritParams get_add
+#' @export
 
 get_price <- function(x) {
 
@@ -42,7 +43,7 @@ get_price <- function(x) {
 #' Common debt
 #'
 #' @inheritParams get_add
-
+#' @export
 get_debt <- function(x){
 
     gjeldxml <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[1]"
@@ -58,7 +59,7 @@ get_debt <- function(x){
 #' Other cost
 #'
 #' @inheritParams get_add
-
+#' @export
 get_cost <- function(x) {
     out <- rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/div[3]/div[1]/dl[2]/dd[2]") %>%
         rvest::html_text()
@@ -71,7 +72,7 @@ get_cost <- function(x) {
 #' Total price
 #'
 #' @inheritParams get_add
-
+#' @export
 get_total <- function(x){
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[3]"
     out <- rvest::html_nodes(x, xpath = fromPath) %>%
@@ -86,7 +87,7 @@ get_total <- function(x){
 #' Monthly cost
 #'
 #' @inheritParams get_add
-
+#' @export
 get_month <- function(x){
 
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/div[3]/dl[2]/dd[4]"
@@ -101,7 +102,7 @@ get_month <- function(x){
 #' Type of housing
 #'
 #' @inheritParams get_add
-
+#' @export
 get_type <- function(x){
     rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[1]") %>%
         rvest::html_text()
@@ -112,7 +113,7 @@ get_type <- function(x){
 #' Type of owership
 #'
 #' @inheritParams get_add
-
+#' @export
 get_form <- function(x){
     rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[2]") %>%
         rvest::html_text()
@@ -123,6 +124,7 @@ get_form <- function(x){
 #' Number of bedrooms
 #'
 #' @inheritParams get_add
+#' @export
 get_bed <- function(x){
 
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[3]"
@@ -137,7 +139,7 @@ get_bed <- function(x){
 #' Primary room size (primærrom)
 #'
 #' @inheritParams get_add
-
+#' @export
 get_primary <- function(x){
 
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[4]"
@@ -151,7 +153,7 @@ get_primary <- function(x){
 #' Size of appartment (bruksareal)
 #'
 #' @inheritParams get_add
-
+#' @export
 get_size <- function(x){
 
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[5]"
@@ -165,7 +167,7 @@ get_size <- function(x){
 #' Floor
 #'
 #' @inheritParams get_add
-
+#' @export
 get_floor <- function(x){
 
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[6]"
@@ -181,7 +183,7 @@ get_floor <- function(x){
 #' Year of build
 #'
 #' @inheritParams get_add
-
+#' @export
 get_build <- function(x){
 
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/section[2]/dl/dd[7]"
@@ -197,7 +199,7 @@ get_build <- function(x){
 #' Number of rooms
 #'
 #' @inheritParams get_add
-
+#' @export
 get_room <- function(x){
     rvest::html_nodes(x, xpath = "/html/body/main/div/div[4]/div[1]/div/section[2]/div/dl[1]/dd[1]") %>%
         rvest::html_text()
@@ -208,7 +210,7 @@ get_room <- function(x){
 #' Visit date
 #'
 #' @inheritParams get_add
-
+#' @export
 get_date <- function(x){
     datoHtml <-
         "/html/body/main/div/div[4]/div[2]/div/div[2]/div/div/div[1]/dl/div[1]/dd"
@@ -220,7 +222,7 @@ get_date <- function(x){
 #' Current status
 #'
 #' @inheritParams get_add
-
+#' @export
 get_status <- function(x){
     fromPath <- "/html/body/main/div/div[4]/div[1]/div/div[2]/span"
 
@@ -234,7 +236,7 @@ get_status <- function(x){
 #' Balcony
 #'
 #' @inheritParams get_add
-
+#' @export
 get_balcony <- function(x){
     htmlBK <- "/html/body/main/div/div[4]/div[1]/div/section[1]/h1"
     txtBK <-rvest::html_nodes(x, xpath = htmlBK) %>%

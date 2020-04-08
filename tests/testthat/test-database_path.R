@@ -7,5 +7,5 @@ test_that("Path to database", {
   }
 
   sti <- paste(dirLocal, "boligfinn.sqlite", sep = "/")
-  expect_identical(get_db(), sti)
+  expect_identical(path_db(), sti)
 })

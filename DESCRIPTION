@@ -28,3 +28,5 @@ RoxygenNote: 7.1.0
 Suggests: 
     testthat (>= 2.1.0),
     covr
+URL: https://github.com/ybkamaleri/boligfinn
+BugReports: https://github.com/ybkamaleri/boligfinn/issues

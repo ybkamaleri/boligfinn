@@ -47,7 +47,14 @@
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/ybkamaleri/boligfinn/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -90,7 +97,11 @@ DF </pre></div>
 <p>If you are interested to save the extracted data to a database.</p>
 <div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/finn-database.html">make_db</a></span>(<span class="no">DF</span>)</pre></div>
 <p>Database will be created automatically. Therefore it is not necessary to specify the database name.</p>
-<div class="sourceCode" id="cb5"><pre class="r">outData </pre></div>
+<div class="sourceCode" id="cb5"><pre class="r">read_db()
+
+#save the output
+dt </pre></div>
+<p>To check the path for database file, use <code><a href="reference/finn-database.html">path_db()</a></code> function.</p>
 <p>Hope you fine the package <span class="emoji" data-emoji="package">ð¦</span> useful! You are welcome to make pull request to contribute.</p>
 </div>
 </div>
@@ -100,6 +111,10 @@ DF </pre></div>
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/ybkamaleri/boligfinn/">https://​github.com/​ybkamaleri/​boligfinn/​</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/ybkamaleri/boligfinn/issues">https://​github.com/​ybkamaleri/​boligfinn/​issues</a>
+</li>
 <li>Finn website at <br><a href="https://www.finn.no/realestate/browse.html">https://​www.finn.no/​realestate/​browse.html</a>
 </li>
 </ul>
@@ -107,8 +122,7 @@ DF </pre></div>
 <div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
 </ul>
 </div>
 <div class="developers">

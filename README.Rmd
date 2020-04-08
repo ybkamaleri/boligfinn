@@ -65,9 +65,12 @@ make_db(DF)
 Database will be created automatically. Therefore it is not necessary to specify the database name.
 
 ```{r readDB, eval=FALSE}
-outData <- read_db()
-#get the file path
-get_db()
+read_db()
+
+#save the output
+dt <- read_df()
 ```
+
+To check the path for database file, use `path_db()` function.
 
 Hope you fine the package :package: useful! You are welcome to make pull request to contribute.

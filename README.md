@@ -74,5 +74,5 @@ dt = read_df()
 
 To check the path for database file, use `path_db()` function.
 
-Hope you fine the package :package: useful\! You are welcome to make
-pull request to contribute.
+Hope you will find this package is useful\! You are welcome to make pull
+request to contribute.

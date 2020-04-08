@@ -11,6 +11,10 @@ devtools::document()
 devtools::check()
 devtools::test()
 
+
+# Run to build the website
+pkgdown::build_site()
+
 ## Run in console
 ## devtools::test_file() #for a specific active file
 ## test_coverage()

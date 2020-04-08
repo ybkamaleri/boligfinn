@@ -3,7 +3,7 @@
 #' \itemize{
 #'   \item \code{make_db()} create database from downloaded data with \link{finn}
 #'   \item \code{read_db()} create connection to the database
-#'   \item \code{path_db()} display the path of the database file \emph{boligfinn.sqlite}.
+#'   \item \code{get_db()} display the path of the database file \emph{boligfinn.sqlite}.
 #' }
 #' 
 #' @param x Data table from \link{finn} function
@@ -23,7 +23,7 @@ NULL
 make_db <- function(x, ...){
 
     ## Path to database
-    dbPath <- path_db()
+    dbPath <- get_db()
 
     ## Check if file exist
     fileOpt <- ifelse(isTRUE(fs::file_exists(dbPath)), 1, 0)
@@ -46,7 +46,7 @@ make_db <- function(x, ...){
 #' @rdname finn-database
 read_db <- function(){
 
-    dbPath <- path_db()
+    dbPath <- get_db()
 
     ## connect to database
     finnCon <- DBI::dbConnect(RSQLite::SQLite(), dbname = dbPath)
@@ -66,7 +66,7 @@ read_db <- function(){
 #' @section Database file and path: 
 #' This is standard and will be \code{~/boligfinn/boligfinn.sqlite}
 #' @rdname finn-database
-path_db <- function(){
+get_db <- function(){
 
   if (.Platform$OS.type == "windows"){
     dirLocal <- "C:/boligfinn"

@@ -45,10 +45,10 @@ This is a basic example which shows you how to use the main function ie.
 ``` r
 library(boligfinn)
 ## basic example code
-DF <- finn()
+DF = finn()
 
 ## specify the parameter
-DF <- finn(area = c(1, 3), pmin = 35, pmax = 5000000)
+DF = finn(area = c(1, 3), pmin = 35, pmax = 5000000)
 ```
 
 For the minimum and maximum prices, it is in million. You can write it
@@ -69,7 +69,7 @@ specify the database name.
 read_db()
 
 #save the output
-dt <- read_df()
+dt = read_df()
 ```
 
 To check the path for database file, use `path_db()` function.

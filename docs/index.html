@@ -69,29 +69,29 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of boligfinn from <a href="https://CRAN.R-project.org">CRAN</a> when Iâm ready to publish it in CRAN with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" title="1"><span class="kw">install.packages</span>(<span class="st">"boligfinn"</span>)</a></code></pre></div>
+<p>You can install the released version of boligfinn from <a href="https://CRAN.R-project.org">CRAN</a> when I am ready to publish it in CRAN with:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"boligfinn"</span>)</pre></div>
 <p>but until that time comes, then you have to install it from <strong>GitHub</strong>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" title="1"><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(remotes)) <span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</a>
-<a class="sourceLine" id="cb2-2" title="2">remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"ybkamaleri/boligfinn"</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="r">if(!require(remotes)) install.packages("remotes")
+remotes::install_github("ybkamaleri/boligfinn")</pre></div>
 </div>
 <div id="extract-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#extract-data" class="anchor"></a>Extract data</h2>
 <p>This is a basic example which shows you how to use the main function ie. <code><a href="reference/finn.html">finn()</a></code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" title="1"><span class="kw">library</span>(boligfinn)</a>
-<a class="sourceLine" id="cb3-2" title="2"><span class="co">## basic example code</span></a>
-<a class="sourceLine" id="cb3-3" title="3">DF &lt;-<span class="st"> </span><span class="kw">finn</span>(<span class="dt">area =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">pmin =</span> <span class="dv">35</span>, <span class="dt">pmax =</span> <span class="dv">5000000</span>)</a></code></pre></div>
-<p>For the minimum and maximum prices, itâs in million. You can write it the whole digits or exclude the zeros.</p>
+<div class="sourceCode" id="cb3"><pre class="r">library(boligfinn)
+## basic example code
+DF </pre></div>
+<p>For the minimum and maximum prices, it is in million. You can write it the whole digits or exclude the zeros.</p>
 </div>
 <div id="create-database" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-database" class="anchor"></a>Create database</h2>
 <p>If you are interested to save the extracted data to a database.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" title="1"><span class="kw">make_db</span>(DF)</a></code></pre></div>
-<p>Database will be created automatically. Therefore itâs not necessary to specify the database name.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" title="1">outData &lt;-<span class="st"> </span><span class="kw">read_db</span>()</a>
-<a class="sourceLine" id="cb5-2" title="2"><span class="kw">get_db</span>() <span class="co">#get the file path</span></a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/finn-database.html">make_db</a></span>(<span class="no">DF</span>)</pre></div>
+<p>Database will be created automatically. Therefore it is not necessary to specify the database name.</p>
+<div class="sourceCode" id="cb5"><pre class="r">outData </pre></div>
+<p>Hope you fine the package <span class="emoji" data-emoji="package">ð¦</span> useful! You are welcome to make pull request to contribute.</p>
 </div>
 </div>
   </div>
@@ -100,7 +100,7 @@
     <div class="links">
 <h2>Links</h2>
 <ul class="list-unstyled">
-<li>Finn website at <br><a href="https://www.finn.no/realestate/browse.htm">https://​www.finn.no/​realestate/​browse.htm</a>
+<li>Finn website at <br><a href="https://www.finn.no/realestate/browse.html">https://​www.finn.no/​realestate/​browse.html</a>
 </li>
 </ul>
 </div>

@@ -1,8 +1,13 @@
 #' Create table from Finn search
 #'
 #' @param area Areas in Oslo to choose from
-#'  1:Bygdøy/Frogner 2:Grünerløkka/Sofienberg 3:Sagene/Torshov
-#'  4:St.Hanshaugen/Ullevål 5:Uranienborg/Majorstuen
+#' \itemize{
+#'   \item 1:Bygdøy/Frogner 
+#'   \item 2:Grünerløkka/Sofienberg 
+#'   \item 3:Sagene/Torshov
+#'   \item 4:St.Hanshaugen/Ullevål 
+#'   \item 5:Uranienborg/Majorstuen
+#'  }
 #' @param pmin Minimum price
 #' @param pmax Maximum price
 #' @param add Other areas to choose from which isn't included in the default
@@ -11,7 +16,7 @@
 #' @importFrom utils setTxtProgressBar txtProgressBar
 #' @export
 
-finn <- function(area = 1:5, pmin = 3, pmax = 5, add = NULL, ...){
+finn <- function(area = 1:5, pmin = 35, pmax = 5, add = NULL, ...){
 
     ## stop warnings
     oldw <- getOption("warn")

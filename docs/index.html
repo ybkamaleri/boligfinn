@@ -47,7 +47,14 @@
   <a href="reference/index.html">Reference</a>
 </li>
       </ul>
-<ul class="nav navbar-nav navbar-right"></ul>
+<ul class="nav navbar-nav navbar-right">
+<li>
+  <a href="https://github.com/ybkamaleri/boligfinn/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
+      </ul>
 </div>
 <!--/.nav-collapse -->
   </div>
@@ -69,39 +76,56 @@
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
-<p>You can install the released version of boligfinn from <a href="https://CRAN.R-project.org">CRAN</a> when Iâm ready to publish it in CRAN with:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">"boligfinn"</span>)</span></code></pre></div>
+<p>You can install the released version of boligfinn from <a href="https://CRAN.R-project.org">CRAN</a> when I am ready to publish it in CRAN with:</p>
+<div class="sourceCode" id="cb1"><pre class="r"><span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span>(<span class="st">"boligfinn"</span>)</pre></div>
 <p>but until that time comes, then you have to install it from <strong>GitHub</strong>.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a><span class="cf">if</span>(<span class="op">!</span><span class="kw">require</span>(remotes)) <span class="kw">install.packages</span>(<span class="st">"remotes"</span>)</span>
-<span id="cb2-2"><a href="#cb2-2"></a>remotes<span class="op">::</span><span class="kw">install_github</span>(<span class="st">"ybkamaleri/boligfinn"</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="r">if(!require(remotes)) install.packages("remotes")
+remotes::install_github("ybkamaleri/boligfinn")</pre></div>
 </div>
 <div id="extract-data" class="section level2">
 <h2 class="hasAnchor">
 <a href="#extract-data" class="anchor"></a>Extract data</h2>
 <p>This is a basic example which shows you how to use the main function ie. <code><a href="reference/finn.html">finn()</a></code>:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="kw">library</span>(boligfinn)</span>
-<span id="cb3-2"><a href="#cb3-2"></a><span class="co">## basic example code</span></span>
-<span id="cb3-3"><a href="#cb3-3"></a>DF &lt;-<span class="st"> </span><span class="kw">finn</span>(<span class="dt">area =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="dt">pmin =</span> <span class="dv">35</span>, <span class="dt">pmax =</span> <span class="dv">5000000</span>)</span></code></pre></div>
-<p>For the minimum and maximum prices, itâs in million. You can write it the whole digits or exclude the zeros.</p>
+<div class="sourceCode" id="cb3"><pre class="r">library(boligfinn)
+## basic example code
+DF = finn()
+
+## specify the parameter
+DF = finn(area = c(1, 3), pmin = 35, pmax = 5000000)</pre></div>
+<p>For the minimum and maximum prices, it is in million. You can write it the whole digits or exclude the zeros.</p>
 </div>
 <div id="create-database" class="section level2">
 <h2 class="hasAnchor">
 <a href="#create-database" class="anchor"></a>Create database</h2>
 <p>If you are interested to save the extracted data to a database.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="kw">make_db</span>(DF)</span></code></pre></div>
-<p>Database will be created automatically. Therefore itâs not necessary to specify the database name.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>outData &lt;-<span class="st"> </span><span class="kw">read_db</span>()</span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="kw">get_db</span>() <span class="co">#get the file path</span></span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="r"><span class="fu"><a href="reference/finn-database.html">make_db</a></span>(<span class="no">DF</span>)</pre></div>
+<p>Database will be created automatically. Therefore it is not necessary to specify the database name.</p>
+<div class="sourceCode" id="cb5"><pre class="r">read_db()
+
+#save the output
+dt = read_df()</pre></div>
+<p>To check the path for database file, use <code><a href="reference/finn-database.html">path_db()</a></code> function.</p>
+<p>Hope you will find this package is useful! You are welcome to make pull request to contribute.</p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
-    <div class="license">
+    <div class="links">
+<h2>Links</h2>
+<ul class="list-unstyled">
+<li>Browse source code at <br><a href="https://github.com/ybkamaleri/boligfinn/">https://​github.com/​ybkamaleri/​boligfinn/​</a>
+</li>
+<li>Report a bug at <br><a href="https://github.com/ybkamaleri/boligfinn/issues">https://​github.com/​ybkamaleri/​boligfinn/​issues</a>
+</li>
+<li>Finn website at <br><a href="https://www.finn.no/realestate/browse.html">https://​www.finn.no/​realestate/​browse.html</a>
+</li>
+</ul>
+</div>
+<div class="license">
 <h2>License</h2>
 <ul class="list-unstyled">
-<li><a href="LICENSE.html">Full license</a></li>
-<li><small><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></small></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
 </ul>
 </div>
 <div class="developers">

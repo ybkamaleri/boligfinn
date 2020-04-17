@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Read database — read_db • boligfinn</title>
+<title>Create database — finn-database • boligfinn</title>
 
 
 <!-- jquery -->
@@ -39,8 +39,14 @@
 
 
 
-<meta property="og:title" content="Read database — read_db" />
-<meta property="og:description" content="Read database" />
+<meta property="og:title" content="Create database — finn-database" />
+<meta property="og:description" content="
+
+make_db() create database from downloaded data with finn
+read_db() create connection to the database
+path_db() display the path of the database file boligfinn.sqlite.
+
+" />
 
 
 
@@ -89,7 +95,12 @@
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="https://github.com/ybkamaleri/boligfinn/">
+    <span class="fab fa fab fa-github fa-lg"></span>
+     
+  </a>
+</li>
       </ul>
       
     </div><!--/.nav-collapse -->
@@ -103,18 +114,54 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Read database</h1>
-    
-    <div class="hidden name"><code>read_db.Rd</code></div>
+    <h1>Create database</h1>
+    <small class="dont-index">Source: <a href='https://github.com/ybkamaleri/boligfinn/blob/master/R/make_database.R'><code>R/make_database.R</code></a></small>
+    <div class="hidden name"><code>finn-database.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Read database</p>
+    
+<ul>
+<li><p><code>make_db()</code> create database from downloaded data with <a href='finn.html'>finn</a></p></li>
+<li><p><code>read_db()</code> create connection to the database</p></li>
+<li><p><code>path_db()</code> display the path of the database file <em>boligfinn.sqlite</em>.</p></li>
+</ul>
+
     </div>
 
-    <pre class="usage"><span class='fu'>read_db</span>()</pre>
+    <pre class="usage"><span class='fu'>make_db</span>(<span class='no'>x</span>, <span class='no'>...</span>)
 
+<span class='fu'>read_db</span>()
 
+<span class='fu'>path_db</span>()</pre>
+
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>x</th>
+      <td><p>Data table from <a href='finn.html'>finn</a> function</p></td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td><p>Extra arguments</p></td>
+    </tr>
+    </table>
+
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>An SQLite database</p>
+    <h2 class="hasAnchor" id="create-folder-automatically"><a class="anchor" href="#create-folder-automatically"></a>Create folder automatically</h2>
+
+    
+
+<p>This function will create a <strong>boligfinn</strong> folder in the HOME directory
+if it isn't there and create a <em>boligfinn.sqlite</em> database.</p>
+    <h2 class="hasAnchor" id="database-file-and-path"><a class="anchor" href="#database-file-and-path"></a>Database file and path</h2>
+
+    
+ 
+<p>This is standard and will be <code>~/boligfinn/boligfinn.sqlite</code></p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

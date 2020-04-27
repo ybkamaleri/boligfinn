@@ -45,11 +45,32 @@ This is a basic example which shows you how to use the main function ie.
 ``` r
 library(boligfinn)
 ## basic example code
+finn()
+
+## or save as an object
 DF = finn()
 
 ## specify the parameter
-DF = finn(area = c(1, 3), pmin = 35, pmax = 5000000)
+DF = finn(area = 1, pmin = 35, pmax = 5000000)
 ```
+
+Currently these areas can be selected:
+
+    1:Bygdøy/Frogner
+    
+    2:Grünerløkka/Sofienberg
+    
+    3:Sagene/Torshov
+    
+    4:St.Hanshaugen/Ullevål
+    
+    5:Uranienborg/Majorstuen
+
+You could combine area during download such as `area = c(1,3)`, but
+isn’t recommended. You could only get maximum 50 rows per download and
+I haven’t figured out how to solve this problem and still in the
+<span style="color:red"> TODO list \<\>. Please come with solution if
+you have it\!
 
 For the minimum and maximum prices, it is in million. You can write it
 the whole digits or exclude the zeros.
@@ -69,7 +90,7 @@ specify the database name.
 read_db()
 
 #save the output
-dt = read_df()
+dt = read_db()
 ```
 
 To check the path for database file, use `path_db()` function.

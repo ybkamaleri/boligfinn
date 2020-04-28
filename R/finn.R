@@ -16,7 +16,7 @@
 #' @importFrom utils setTxtProgressBar txtProgressBar
 #' @export
 
-finn <- function(area = 1:5, pmin = 35, pmax = 5, add = NULL, ...){
+finn <- function(area = 1, pmin = 35, pmax = 5, add = NULL, ...){
 
     ## stop warnings
     oldw <- getOption("warn")
@@ -29,7 +29,7 @@ finn <- function(area = 1:5, pmin = 35, pmax = 5, add = NULL, ...){
     finnCodes <- get_finn(finnHTML)
 
     ## Set progress bar
-    pb <- txtProgressBar(min = 0, max = length(finnCodes), style = 3)
+    pb <- txtProgressBar(min = 0, max = length(finnCodes), style = 3, ...)
 
     finnTabel <- list()
 

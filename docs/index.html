@@ -31,7 +31,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">boligfinn</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.0.1.9000</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.2.4</span>
       </span>
     </div>
 
@@ -113,12 +113,12 @@
 <a href="#create-database" class="anchor"></a>Create database</h2>
 <p>If you are interested to save the extracted data to a database.</p>
 <div class="sourceCode" id="cb5"><pre class="r"><span class="fu"><a href="reference/finn-database.html">make_db</a></span>(<span class="no">DF</span>)</pre></div>
-<p>Database will be created automatically. Therefore it is not necessary to specify the database name.</p>
+<p>You know that it won’t be easy to remember things that you don’t use frequently <span class="emoji" data-emoji="smile">😄</span>. At least I have that problem. Therefore if you want to save the downloaded data as a database, this will be created automatically and you don’t have to remember what the database is call! Therefore it is not necessary to specify the database name.</p>
 <div class="sourceCode" id="cb6"><pre class="r"><span class="fu"><a href="reference/finn-database.html">read_db</a></span>()
 
 <span class="co">#save the output</span>
 <span class="no">dt</span> <span class="kw">=</span> <span class="fu"><a href="reference/finn-database.html">read_db</a></span>()</pre></div>
-<p>To check the path for database file, use <code><a href="reference/finn-database.html">path_db()</a></code> function.</p>
+<p>But if you are curious and want to check the path for database file, use <code><a href="reference/finn-database.html">path_db()</a></code> function.</p>
 <p>Hope you will find this package is useful! You are welcome to make pull request to contribute.</p>
 </div>
 </div>

@@ -82,8 +82,11 @@ If you are interested to save the extracted data to a database.
 make_db(DF)
 ```
 
-Database will be created automatically. Therefore it is not necessary to
-specify the database name.
+You know that it won’t be easy to remember things that you don’t use
+frequently :smile:. At least I have that problem. Therefore if you want
+to save the downloaded data as a database, this will be created
+automatically and you don’t have to remember what the database is call\!
+Therefore it is not necessary to specify the database name.
 
 ``` r
 read_db()
@@ -92,7 +95,8 @@ read_db()
 dt = read_db()
 ```
 
-To check the path for database file, use `path_db()` function.
+But if you are curious and want to check the path for database file, use
+`path_db()` function.
 
 Hope you will find this package is useful\! You are welcome to make pull
 request to contribute.

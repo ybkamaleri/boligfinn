@@ -4,7 +4,7 @@
 \alias{finn}
 \title{Create table from Finn search}
 \usage{
-finn(area = 1:5, pmin = 35, pmax = 5, add = NULL, ...)
+finn(area = 1, pmin = 35, pmax = 5, add = NULL, ...)
 }
 \arguments{
 \item{area}{Areas in Oslo to choose from

@@ -1,6 +1,6 @@
 Package: boligfinn
 Title: Compare info of appartments from Finn.no
-Version: 0.0.1.9000
+Version: 0.2.4
 Authors@R: 
     person(given = "Yusman",
            family = "Kamaleri",

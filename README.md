@@ -68,9 +68,8 @@ Currently these areas can be selected:
 
 You could combine area during download such as `area = c(1,3)`, but
 isn’t recommended. You could only get maximum 50 rows per download and
-I haven’t figured out how to solve this problem and still in the
-<span style="color:red"> TODO list \<\>. Please come with solution if
-you have it\!
+I haven’t figured it out how to solve this problem and still in the
+*TODO* list. Please come with solution if you have it\!
 
 For the minimum and maximum prices, it is in million. You can write it
 the whole digits or exclude the zeros.

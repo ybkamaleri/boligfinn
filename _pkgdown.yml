@@ -2,6 +2,10 @@ home:
  links:
  - text: Finn website
    href: https://www.finn.no/realestate/browse.html
+
+template:
+  params:
+    bootswatch: sandstone
    
 reference:
  - title: Main function

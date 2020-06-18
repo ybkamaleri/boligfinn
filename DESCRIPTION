@@ -1,0 +1,32 @@
+Package: boligfinn
+Title: Compare info of appartments from Finn.no
+Version: 0.2.4
+Authors@R: 
+    person(given = "Yusman",
+           family = "Kamaleri",
+           role = c("aut", "cre"),
+           email = "ybkamaleri@gmail.com",
+           comment = c(ORCID = "0000-0001-5014-3665"))
+Description: Get information from appartments advertised in Finn.no for specified areas, price etc.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+    data.table,
+    glue,
+    robotstxt,
+    rvest,
+    xml2,
+    stringi,
+    magrittr,
+    ggplot2,
+    lubridate,
+    fs,
+    DBI,
+    RSQLite
+RoxygenNote: 7.1.0
+Suggests: 
+    testthat (>= 2.1.0),
+    covr
+URL: https://github.com/ybkamaleri/boligfinn
+BugReports: https://github.com/ybkamaleri/boligfinn/issues

@@ -1,0 +1,23 @@
+home:
+ links:
+ - text: Finn website
+   href: https://www.finn.no/realestate/browse.html
+
+template:
+  params:
+    bootswatch: sandstone
+   
+reference:
+ - title: Main function
+   contents:
+    - finn
+   
+ - title: Get Finn
+   contents:
+    - starts_with("get_")
+    
+ - title: Database
+   contents:
+   - ends_with("_db")
+
+destination: docs

@@ -11,6 +11,10 @@ if (length(nypkg)) install.packages(nypkg)
 
 sapply(pkgs, require, character.only = TRUE)
 
+## Check Share
+robotstxt::paths_allowed("https://www.oslobors.no/markedsaktivitet/#/list/shares/quotelist/ose/all/all/false")
+
+
 ## Check if website can be extracted
 ## If it's TRUE then it's extractable
 ## For Bygdøy and Majorsuten area
